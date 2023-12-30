@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     }
 
     struct dirent *entry;
-    int processes_count = 0;
+    int processes_count = 1;
 
     while ((entry = readdir(dir)) != NULL) {
         if (entry->d_type == DT_REG) {
@@ -64,6 +64,7 @@ int main(int argc, char *argv[]) {
 
             if (pid == 0) {
                 search_in_file(file_path, target_bytes, getpid());
+                printf("Processes working: %d\n", processes_count);
                 exit(EXIT_SUCCESS);
             } else if (pid > 0) {
                 processes_count++;
