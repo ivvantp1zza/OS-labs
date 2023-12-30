@@ -24,7 +24,7 @@ void search_in_file(const char *file_path, const char *target_bytes, int process
     int found = 0;
 
     while ((bytesRead = fread(buffer, 1, sizeof(buffer), file)) > 0) {
-        if (memcmp(buffer, target_bytes, strlen(target_bytes)) == 0) {
+        if (strstr(buffer, target_bytes) != NULL) {
             found = 1;
             break;
         }
