@@ -23,13 +23,13 @@ void print_time() {
 int main() {
     pid_t process1, process2;
     if ((process1 = fork()) == 0) {
-        printf("Process 1 - pid: %d, ppid: %d, time: ", getpid(), getppid());
+        printf("Process 1 - pid: %d, ppid: %d", getpid(), getppid());
         print_time();
         exit(EXIT_SUCCESS);
     }
 
     if ((process2 = fork()) == 0) {
-        printf("Process 2 - pid: %d, ppid: %d, time: ", getpid(), getppid());
+        printf("Process 2 - pid: %d, ppid: %d", getpid(), getppid());
         print_time();
         exit(EXIT_SUCCESS);
     }
